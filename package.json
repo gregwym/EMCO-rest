@@ -1,0 +1,9 @@
+{
+  "name": "emco-rest",
+  "dependencies": {
+    "sqlite3": "~2.1.17",
+    "express": "~3.4.0",
+    "debug": "~0.7.2",
+    "jade": "~0.35.0"
+  }
+}
