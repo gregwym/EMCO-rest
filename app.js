@@ -52,5 +52,12 @@ app.get('/product/:id/documents', function(req, res) {
   });
 });
 
+app.get('/document/:id', function(req, res) {
+  db.get('select * from documents where id = $id', { $id: req.params.id }, function(err, row) {
+    if (err) { return res.json(err); }
+    res.json(row);
+  });
+});
+
 app.listen(app.get('port'));
 console.log('App start listening on port ' + app.get('port'));
