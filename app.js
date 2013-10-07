@@ -24,5 +24,12 @@ app.get('/vendor', function(req, res) {
   });
 });
 
+app.get('/vendor/:id', function(req, res) {
+  db.get('select * from vendors where id = $id', { $id: req.params.id }, function(err, row) {
+    if (err) { return res.json(err); }
+    res.json(row);
+  });
+});
+
 app.listen(app.get('port'));
 console.log('App start listening on port ' + app.get('port'));
