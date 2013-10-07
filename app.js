@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('./data/vendorDB.sqlite', sqlite3.OPEN_READONLY);
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', 'views');
@@ -14,6 +16,13 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session({
   secret: 'your secret here'
 }));
+
+app.get('/vendor', function(req, res) {
+  db.all('select * from vendors', {}, function(err, rows) {
+    if (err) { return res.json(err); }
+    res.json(rows);
+  });
+});
 
 app.listen(app.get('port'));
 console.log('App start listening on port ' + app.get('port'));
