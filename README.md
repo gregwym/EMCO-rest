@@ -8,7 +8,9 @@ Restful web API for EMCO database.
 - http://localhost:3000/vendor/<vendor_id>
 - http://localhost:3000/vendor/<vendor_id>/products
 - http://localhost:3000/product/<product_id>
-- http://localhost:3000/product/<product_id>/documents
+- http://localhost:3000/product/<product_id>/models
+- http://localhost:3000/model/<model_id>
+- http://localhost:3000/model/<model_id>/documents
 - http://localhost:3000/document/<document_id>
 
 ## Sample Output
